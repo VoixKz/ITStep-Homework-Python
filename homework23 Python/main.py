@@ -4,37 +4,37 @@ import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
 
-# async def download_image(session, url, image_number):
-#     async with session.get(url) as response:
-#         with open(f"homework23/folder_aiohttp/image_{image_number}.jpg", "wb") as file:
-#             while True:
-#                 chunk = await response.content.read(1024)
-#                 if not chunk:
-#                     break
-#                 file.write(chunk)
+async def download_image(session, url, image_number):
+    async with session.get(url) as response:
+        with open(f"homework23 Python/folder_aiohttp/image_{image_number}.jpg", "wb") as file:
+            while True:
+                chunk = await response.content.read(1024)
+                if not chunk:
+                    break
+                file.write(chunk)
 
-# async def main():
-#     async with aiohttp.ClientSession() as session:
-#         tasks = []
-#         tasks.append(download_image(session, image_url, ind+1))
-#         await asyncio.gather(*tasks)
+async def main():
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        tasks.append(download_image(session, image_url, ind+1))
+        await asyncio.gather(*tasks)
 
-# os.makedirs("homework23/folder_requests", exist_ok=True)
-# os.makedirs("homework23/folder_aiohttp", exist_ok=True)
+os.makedirs("homework23 Python/folder_requests", exist_ok=True)
+os.makedirs("homework23 Python/folder_aiohttp", exist_ok=True)
 
-# site_url = "https://fonwall.ru/"
-# soup = BeautifulSoup(requests.get(site_url).text, "html.parser")
-# imgs = soup.find_all("img")
-# for ind, img in enumerate(imgs):
-#     if ind > 9:
-#         break
-#     image_url = img["src"]
-#     print(ind+1, image_url)
-#     response = requests.get(image_url)
-#     with open(f"homework23/folder_requests/image_{ind+1}.jpg", "wb") as file:
-#         file.write(response.content)
+site_url = "https://fonwall.ru/"
+soup = BeautifulSoup(requests.get(site_url).text, "html.parser")
+imgs = soup.find_all("img")
+for ind, img in enumerate(imgs):
+    if ind > 9:
+        break
+    image_url = img["src"]
+    print(ind+1, image_url)
+    response = requests.get(image_url)
+    with open(f"homework23 Python/folder_requests/image_{ind+1}.jpg", "wb") as file:
+        file.write(response.content)
     
-#     asyncio.run(main())
+    asyncio.run(main())
 
 
 

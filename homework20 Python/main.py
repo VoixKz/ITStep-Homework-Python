@@ -1,7 +1,7 @@
 import time, threading
 from random import randint
 
-filename = './homework20/file.txt'
+filename = './homework20 Python/file.txt'
 open(filename, 'w').close()
 print(f'File {filename} created')
 def create_file_with_randint():

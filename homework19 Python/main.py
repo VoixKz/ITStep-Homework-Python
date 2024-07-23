@@ -9,14 +9,14 @@ def create_file(filename):
 
 start_time = time.time()
 for i in range(100):
-    create_file(f"./homework19/files/file_{i}.txt")
+    create_file(f"./homework19 Python/files/file_{i}.txt")
 end_time = time.time()
 print(f"Время выполнения без многопоточности: {end_time - start_time} секунд.")
 
 start_time = time.time()
 threads = []
 for i in range(100):
-    thread = threading.Thread(target=create_file, args=(f"./homework19/files/file_{i}.txt",))
+    thread = threading.Thread(target=create_file, args=(f"./homework19 Python/files/file_{i}.txt",))
     thread.start()
     threads.append(thread)
 for thread in threads:
